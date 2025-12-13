@@ -45,3 +45,26 @@ def read_all_cyber_incidents_pandas():
     query = "SELECT * FROM cyber_incidents"
     cyber_table = pd.read_sql(query, conn)
     print(cyber_table.head(5))
+    
+    
+def migrate_datasets_metadata(conn):
+    data_metadata = pd.read_csv('DATA/datasets_metadata.csv') # 1 read data from csv
+    data_metadata.to_sql('datasets_metadata', conn) # 3. create table, inserting the data
+   
+
+def migrate_it_tickets(conn):
+    data_metadata = pd.read_csv('DATA/it_tickets.csv') # 1 read data from csv
+    data_metadata.to_sql('it_tickets', conn) # 3. create table, inserting the data
+
+
+
+
+def get_all_datasets_metadata(conn):
+    sql = 'SELECT * FROM datasets_metadata'
+    data = pd.read_sql(sql, conn)
+    conn.close()
+    return data
+
+conn = sqlite3.connect('DATA/intelligence_platform.db') # 2. create connection
+
+conn.close()
