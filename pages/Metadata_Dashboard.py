@@ -35,7 +35,7 @@ with col1:
     
    
 with col2:
-    st.line_chart(filtered_data, x ='upload_date', y = 'dataset_id') 
+    st.line_chart(filtered_data, x ='rows', y = 'uploaded_by') 
     
       
 st.dataframe(filtered_data)

@@ -18,6 +18,7 @@ if not st.session_state['logged_in']:
 
 st.title("Welcome to the Home Page")
 st.write("This is the main landing page of the application.")
+st.write("Access all your information on Incidents here.")
 
 data['timestamp'] = pd.to_datetime(data['timestamp'])
 
