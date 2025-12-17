@@ -1,6 +1,11 @@
 
 
-
+def get_user(conn, name):
+    curr = conn.cursor()
+    sql = '''SELECT * FROM users WHERE username = ?'''
+    param = (name)
+    curr.execute(sql,param)
+    return curr.fetchone()
 
 
 
