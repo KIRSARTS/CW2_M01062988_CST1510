@@ -20,21 +20,24 @@ st.title("Welcome to the Home Page")
 st.write("This is the main landing page of the application.")
 st.write("Access all your information on Incidents here.")
 
-data['timestamp'] = pd.to_datetime(data['timestamp'])
+
 
 with st.sidebar:
     st.header("Navigation")
     severity_ = st.selectbox("Severity", data['severity'].unique())
 
+data['timestamp'] = pd.to_datetime(data['timestamp'])
 filtered_data = data[data['severity'] == severity_]
     
 col1, col2 = st.columns(2)
 
 with col1:
-   st.bar_chart(filtered_data['category'].value_counts())
+    st.subheader("Category")
+    st.bar_chart(filtered_data['category'].value_counts())
 
 with col2:
+    st.subheader("Incident_ID over Time")
     st.line_chart(filtered_data, x ='timestamp', y = 'incident_id')
 
-
+st.subheader("Filtered Data")
 st.dataframe(filtered_data)

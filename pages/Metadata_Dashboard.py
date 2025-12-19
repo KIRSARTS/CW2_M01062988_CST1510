@@ -31,11 +31,13 @@ with st.sidebar:
    
     
 with col1:
+    st.subheader("Uploaded Data")
     st.bar_chart(filtered_data['uploaded_by'].value_counts())
     
    
 with col2:
-    st.line_chart(filtered_data, x ='rows', y = 'uploaded_by') 
+    st.subheader("Name over Rows")
+    st.line_chart(filtered_data, x ='rows', y = 'name') 
     
-      
+st.subheader("Filtered Data")     
 st.dataframe(filtered_data)

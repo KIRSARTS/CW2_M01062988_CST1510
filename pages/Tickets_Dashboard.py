@@ -30,12 +30,14 @@ filtered_data = data[data['priority'] == Priority]
 col1, col2 = st.columns(2)
 
 with col1:
+   st.subheader("Description") 
    st.bar_chart(filtered_data['description'].value_counts())
 
 with col2:
+    st.subheader("Ticket_ID over Time")
     st.line_chart(filtered_data, x ='resolution_time_hours', y = 'ticket_id')
 
-
+st.subheader("Filtered Data")
 st.dataframe(filtered_data)
 
 
